@@ -51,14 +51,18 @@ function displayData(page, data = currentData) {
             </button>`;
 
         // 4. カードの中身を組み立て
-        card.innerHTML = `
-            <h3>${item.name}:${item.code}</h3>
-            <img src="${item.img}" alt="${item.code}">
-            <p class="description">${item.comment}</p>
-            <div class="card-tags-wrapper">${tagsHtml}</div>
-            ${linkHtml}
-            ${shareBtnHtml}
-        `;
+            card.innerHTML = `
+                <h3>${item.name}:${item.code}</h3>
+                <img src="${item.img}" alt="${item.code}">
+                
+                <div class="description-container">
+                    <p class="description">${item.comment}</p>
+                </div>
+
+                <div class="card-tags-wrapper">${tagsHtml}</div>
+                ${linkHtml}
+                ${shareBtnHtml}
+            `;
 
         // タグクリックイベント
         card.querySelectorAll('.card-tag').forEach(tagSpan => {

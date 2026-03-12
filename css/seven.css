@@ -137,10 +137,16 @@ body{
     text-overflow: ellipsis;
     line-height: 1.5;
     word-break:break-all; 
-    overflow-wrap: break-word;
+    overflow-wrap: normal;
+    max-height: 4.5em;
     cursor: pointer; /* クリックできることを示す */
     transition: opacity 0.2s;
     margin-bottom: 10px;
+}
+.number-card p a{
+    display: inline;
+    position: relative;
+    pointer-events: auto;
 }
 
 .number-card p:hover {

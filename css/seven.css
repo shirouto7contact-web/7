@@ -158,6 +158,10 @@ body{
 
     /* 4. 念のため。位置を浮かさない */
     position: static;
+
+    display: contents !important; /* リンクという『塊』を消し、ただの文字にする */
+    color: blue;
+    text-decoration: underline;
 }
 
 .number-card p:hover {

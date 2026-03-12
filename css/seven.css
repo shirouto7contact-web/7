@@ -144,10 +144,20 @@ body{
     transition: opacity 0.2s;
     margin-bottom: 10px;
 }
-.number-card p a{
-    display: inline;
-    position: relative;
-    pointer-events: auto;
+.number-card p a {
+    /* 1. リンクを「塊」ではなく「ただのテキスト」として扱う */
+    display: inline; 
+
+    /* 2. リンクの途中でも、枠の端に来たらどこでも改行を許可する（最重要） */
+    word-break: break-all;
+    overflow-wrap: anywhere;
+
+    /* 3. リンクの余計な隙間（padding/margin）をゼロにする */
+    padding: 0;
+    margin: 0;
+
+    /* 4. 念のため。位置を浮かさない */
+    position: static;
 }
 
 .number-card p:hover {

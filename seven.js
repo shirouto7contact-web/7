@@ -309,18 +309,26 @@ window.onload = () => {
 
 
 function unlockSite() {
-    // 1. 年齢確認を消す
+    // 1. 年齢確認画面を消す
     const ageGate = document.getElementById('age-gate');
     if (ageGate) {
         ageGate.style.display = 'none';
     }
 
-    // 2. JuicyAdsに「人間がクリックしたぞ！」と強く認識させる
-    // 実際にページ上の見えない要素をクリックさせる力技です
-    document.body.click(); 
+    // 2. 【重要】ボタンが押された瞬間に、広告JSを動的に生成して差し込む
+    // これにより、ブラウザに「ユーザーの意思で広告が呼ばれた」と認識させます
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    
+    // ここにJuicyAdsのコードから「src="xxxx"」の部分だけをコピーして貼り付けてください
+    script.src = 'https://js.juicyads.com/your_unique_code.js'; 
+    
+    // JuicyAdsのタグに「data-juicyads-site」などの属性がある場合はここに追加
+    script.setAttribute('data-juicyads-site', 'あなたのサイトID');
 
-    // 3. もしJuicyAdsのコードが正しく貼られていれば、
-    // この「body.click()」に反応して全画面広告が発動します。
-    console.log("Age check cleared & physical click triggered.");
+    document.body.appendChild(script);
+
+    // 3. 念押しのクリックイベント
+    window.dispatchEvent(new Event('click'));
 }
     
